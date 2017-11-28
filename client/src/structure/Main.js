@@ -4,6 +4,7 @@ import Home from '../components/pages/Home'
 import AddGiftContainer from '../components/pages/admin/AddGiftContainer'
 import AllGifts from '../components/pages/admin/AllGifts'
 import EditGiftContainer from '../components/pages/admin/EditGiftContainer'
+import GiftPage from '../components/pages/admin/GiftPage'
 import ListUsers from '../components/pages/admin/ListUsers'
 import CreateUserContainer from '../components/pages/user/CreateUserContainer'
 import LoginContainer from '../components/pages/authorization/LoginContainer'
@@ -33,6 +34,7 @@ const Main = ({giftData, userData, classes}) => {
       <Route path='/'exact component={Home} />
       <Route path='/AddGift' render={() => <AddGiftContainer giftData={giftData} />} />
       <Route path='/AllGifts' render={() => <AllGifts giftData={giftData} />} />
+      <Route path='/:giftId' render={() => <GiftPage giftData={giftData} />} />
       <Route path='/EditGift/:giftId' render={() => <EditGiftContainer giftData={giftData} />} />
       <Route path='/ListUsers' render={() => <ListUsers />} />
       <Route path='/CreateUser' render={() => <CreateUserContainer userData={userData} />} />

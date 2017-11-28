@@ -1,7 +1,5 @@
 import React from 'react'
 import Input from 'material-ui/Input'
-import {FormControlLabel} from 'material-ui/Form'
-import Switch from 'material-ui/Switch'
 import Button from 'material-ui/Button'
 import PropTypes from 'prop-types'
 import injectSheet from 'react-jss'

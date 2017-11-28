@@ -35,17 +35,18 @@ const styles = {
     width: '100%',
     borderRadius: '50px 50px 0 0'
   },
-  drinkTitle: {
+  giftTitle: {
     textAlign: 'center'
   },
   imageTitle: {
     background: '#ffffff',
     width: '100%'
   },
-  drinkChoices: {
+  giftDetails: {
     display: 'flex',
     flexDirection: 'column',
-    background: '#ecf0f1'
+    background: '#ecf0f1',
+    textAlign: 'center'
   },
   p: {
     fontSize: 12
@@ -105,23 +106,17 @@ const GiftCard = props => {
       <img
         className={classes.thumbnail}
         src={
-          props.image ? props.image :
+          props.gift.image ? props.gift.image :
             'https://static.pexels.com/photos/260184/pexels-photo-260184.jpeg'}
       />
       <div className={classes.imageTitle}>
-        <h1 className={classes.drinkTitle}> {props.gift.firstName} </h1>
+        <h1 className={classes.giftTitle}> {props.gift.firstName} </h1>
       </div>
-      <div className={classes.drinkChoices}>
-        <div className={classes.styleWords}>
-          <div>
-            Age: {props.gift.age}
-            Jammie Size: {props.gift.jammieSize}
-          </div>
-          <div>
-            Special Instructions: {props.gift.specialInstructions}
-            Story: {props.gift.story}
-          </div>
-        </div>
+      <div className={classes.giftDetails}>
+        <p>Age: {props.gift.age}</p>
+        <p>Jammie Size: {props.gift.jammieSize}</p>
+        <p>Special Instructions: {props.gift.specialInstructions}</p>
+        <p>Story: {props.gift.story}</p>
       </div>
       <div className={classes.buttonContainer}>
         <Link className={classes.EditButton} to={`/EditGift/${props.gift._id}`}>
