@@ -274,10 +274,6 @@ const styles = {
   introPic: {
     width: '100%'
   },
-  introTitle: {
-    fontFamily: 'Nunito',
-    textTransform: 'capitalize'
-  },
   explainerContainer: {
     display: 'flex',
     flexDirection: 'row',
@@ -352,8 +348,8 @@ const Home = (props) => {
       <div className={props.classes.iconDiv}>
         <div className={props.classes.iconImgContainer}>
           <img className={props.classes.iconImg} src='http://www.youthvillage.org/images/gift-loop.gif' />
-          <Link to={'/AllGifts'}>
-            <h1>Receive a Gift</h1>
+          <Link to={'/AddGift'}>
+            <h1>Create a Gift</h1>
           </Link>
         </div>
         <div className={props.classes.iconImgContainer}>

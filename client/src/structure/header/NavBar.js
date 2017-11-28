@@ -12,9 +12,11 @@ const propTypes = {
 const styles = {
   navLinks: {
     display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     padding: 20,
     top: 0,
-    width: '100%'
+    width: '33%'
   },
   links: {
     textDecoration: 'none',
@@ -43,19 +45,8 @@ const NavBar = props => {
   const { classes, userData } = props
   return (
     <div className={classes.navLinks}>
-      <div className={classes.navLinksLinks}>
         <NavLink className={classes.links} to='/'>Home</NavLink>
-        <NavLink className={classes.links} to='/Randomizer'>Randomizer</NavLink>
         <NavLink className={classes.links} to='/AllGifts'>Giving Tree</NavLink>
-        <NavLink className={classes.links} to='/AddGift'>Add Gift</NavLink>
-        { !userData.user ? <NavLink className={classes.links} to='/CreateUser'>Sign Up</NavLink>
-          : null }
-        { !userData.user ? <NavLink className={classes.links} to='/Login'>Login</NavLink> : null }
-        { userData.user ? <NavLink className={classes.links} to='/Profile'>Profile</NavLink> : null}
-      </div>
-      <div className={classes.navLinksGravatar}>
-        <Gravatar className={classes.gravatarImg} email={userData && userData.user ? userData.user.local.email : 'one@gmail.com'} size={60} rating='pg' default='wavatar' />
-      </div>
     </div>
   )
 }

@@ -13,7 +13,7 @@ const GiftSchema = new mongoose.Schema({
   image: { type: String, required: true }
 })
 
-DrinkSchema.methods.loadData = function (data) {
+GiftSchema.methods.loadData = function (data) {
   this.firstName = data.firstName || this.firstName
   this.lastName = data.lastName || this.lastName
   this.age = data.age || this.age
