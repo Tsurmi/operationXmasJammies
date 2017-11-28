@@ -12,7 +12,7 @@ class GiftDataProvider extends Component {
     isLoaded: false,
     gifts: [],
     randomGift: undefined,
-    gift: undefined
+    gift: undefined,
   }
 
   methods = {
@@ -29,6 +29,7 @@ class GiftDataProvider extends Component {
     addGift: (newGift) =>
       ServerApi.addGift(newGift)
         .then(() => {
+          console.log(newGift, 'should show a new gift from addGift')
           this.methods.getAllGifts()
         }),
 

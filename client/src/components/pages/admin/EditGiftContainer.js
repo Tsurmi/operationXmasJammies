@@ -21,6 +21,7 @@ class EditGiftContainer extends Component {
     zipCode: undefined,
     specialInstructions: undefined,
     story: undefined,
+    nickName: undefined,
     image: undefined
   }
 
@@ -30,6 +31,7 @@ class EditGiftContainer extends Component {
       this.setState({
         firstName: this.props.giftData.gift.firstName,
         lastName: this.props.giftData.gift.lastName,
+        nickName: this.props.giftData.gift.nickName,
         age: this.props.giftData.gift.age,
         jammieSize: this.props.giftData.gift.jammieSize,
         street: this.props.giftData.gift.street,
@@ -44,6 +46,8 @@ class EditGiftContainer extends Component {
   }
 
   onFirstNameChanged = (event) => this.setState({firstName: event.target.value})
+
+  onNickNameChanged = (event) => this.setState({nickName: event.target.value})
 
   onImageChanged = (event) => this.setState({image: event.target.value})
 
@@ -77,6 +81,7 @@ class EditGiftContainer extends Component {
         {...this.state}
         onFirstNameChanged={this.onFirstNameChanged}
         onLastNameChanged={this.onLastNameChanged}
+        onNickNameChanged={this.onNickNameChanged}
         onAgeChanged={this.onAgeChanged}
         onJammieSizeChanged={this.onJammieSizeChanged}
         onStreetChanged={this.onStreetChanged}

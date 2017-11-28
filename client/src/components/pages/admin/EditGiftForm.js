@@ -16,8 +16,7 @@ const styles = {
     flexDirection: 'column',
     margin: 10,
     width: '33.33333333333vw',
-    height: '30vw',
-    border: 'solid black'
+    height: '30vw'
   },
   inputTag: {
     border: 'solid yellow',
@@ -58,6 +57,8 @@ const propTypes = {
   mailingState: PropTypes.string.isRequired,
   onZipCodeChanged: PropTypes.func.isRequired,
   zipCode: PropTypes.string.isRequired,
+  onNickNameChanged: PropTypes.string.isRequired,
+  nickName: PropTypes.string.isRequired,
   onSpecialChanged: PropTypes.func.isRequired,
   specialInstructions: PropTypes.string.isRequired,
   onStoryChanged: PropTypes.func.isRequired,
@@ -73,64 +74,90 @@ const EditGiftForm = props => {
   const { classes } = props
   return (
     <div className={props.classes.spacer}>
-      <h1 className={classes.header}>Edit A Drink</h1>
+      <h1 className={classes.header}>Edit A Gift</h1>
       <div className={props.classes.formAndPhotoBucket} >
-        <img className={props.classes.photo} src='https://burst.shopifycdn.com/photos/grey-coffee-mug_925x.jpg' />
+        <img className={props.classes.photo} src='https://static.pexels.com/photos/192538/pexels-photo-192538.jpeg' />
         <div className={props.classes.formBucket}>
           <form className={props.classes.input}>
+            <h4> Required Information </h4>
+            <p> This is the information only a person who is fulfilling
+            the Gift will see.  Only after they provide their contact information </p>
             <Input
-              placeholder='Edit First Name'
-              value={props.firstName}
+              placeholder='First Name (required)'
               onChange={props.onFirstNameChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
             <Input
-              placeholder='Edit Last First Name'
-              value={props.lastName}
+              placeholder='Last Name (required)'
               onChange={props.onLastNameChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
             <Input
-              placeholder='Edit Age'
-              value={props.age}
-              onChange={props.onAgeChanged}
-              inputProps={{
-                'aria-label': 'Description'
-              }}
-            />
-            <Input
-              placeholder='Edit Jammie Size'
-              value={props.jammieSize}
+              placeholder='Jammie Size (required)'
               onChange={props.onJammieSizeChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
             <Input
-              placeholder='Edit Special Instructions'
-              value={props.specialInstructions}
+              placeholder='Mailing Street (required)'
+              onChange={props.onStreetChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+            <Input
+              placeholder='Mailing State (required)'
+              onChange={props.onMailingStateChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+            <Input
+              placeholder='Mailing Zip Code (required)'
+              onChange={props.onZipCodeChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+            <h4> Optional Information </h4>
+            <p> This is the information everyone will see.
+            Fill out as much of it as you like </p>
+            <Input
+              placeholder='Nickname (optional)'
+              onChange={props.onNickNameChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+            <Input
+              placeholder='Age (optional)'
+              onChange={props.onAgeChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+            <Input
+              placeholder='Add a Photo URL (optional)'
+              onChange={props.onImageChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+            <Input
+              placeholder='Special Instructions (optional)'
               onChange={props.onSpecialChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
             <Input
-              placeholder='Edit Story'
-              value={props.story}
+              placeholder='Story (optional)'
               onChange={props.onStoryChanged}
-              inputProps={{
-                'aria-label': 'Description'
-              }}
-            />
-
-            <Input
-              placeholder='Edit Photo URL'
-              value={props.image}
-              onChange={props.onImageChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}

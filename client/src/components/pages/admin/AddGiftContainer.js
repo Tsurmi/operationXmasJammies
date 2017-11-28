@@ -19,6 +19,7 @@ class AddGiftContainer extends Component {
     specialInstructions: undefined,
     story: undefined,
     jammieSize: undefined,
+    nickName: undefined,
     image: undefined
   }
 
@@ -50,6 +51,9 @@ class AddGiftContainer extends Component {
     specialInstructions: event.target.value
   })
 
+  onNickNameChanged = (event) => this.setState({
+    nickName: event.target.value
+  })
 
   onImageChanged = (event) => this.setState({
     image: event.target.value
@@ -92,6 +96,8 @@ class AddGiftContainer extends Component {
         onSpecialChanged={this.onSpecialChanged}
         onStoryChanged={this.onStoryChanged}
         onJammieSizeChanged={this.onJammieSizeChanged}
+        onImageChanged={this.onImageChanged}
+        onNickNameChanged={this.onNickNameChanged}
         onSubmit={this.onSubmit}
       />
     )

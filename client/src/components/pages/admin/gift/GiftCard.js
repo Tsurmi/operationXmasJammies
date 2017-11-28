@@ -14,7 +14,8 @@ const propTypes = {
   zipCode: PropTypes.string.isRequired,
   specialInstructions: PropTypes.string.isRequired,
   story: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
+  jammieSize: PropTypes.string.isRequired,
+  nickName: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired
 }
 
@@ -105,6 +106,7 @@ const GiftCard = props => {
       <img className={classes.thumbnail} src={props.gift.image} />
       <div className={classes.imageTitle}>
         <h1 className={classes.drinkTitle}> {props.gift.firstName} {props.gift.lastName}</h1>
+        <h1> {props.gift.nickName} </h1>
       </div>
       <div className={classes.drinkChoices}>
         <div className={classes.styleWords}>
