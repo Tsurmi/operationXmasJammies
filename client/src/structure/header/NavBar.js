@@ -46,8 +46,8 @@ const NavBar = props => {
       <div className={classes.navLinksLinks}>
         <NavLink className={classes.links} to='/'>Home</NavLink>
         <NavLink className={classes.links} to='/Randomizer'>Randomizer</NavLink>
-        <NavLink className={classes.links} to='/AllDrinks'>All Drinks</NavLink>
-        <NavLink className={classes.links} to='/AddDrink'>Add Drink</NavLink>
+        <NavLink className={classes.links} to='/AllGifts'>Giving Tree</NavLink>
+        <NavLink className={classes.links} to='/AddGift'>Add Gift</NavLink>
         { !userData.user ? <NavLink className={classes.links} to='/CreateUser'>Sign Up</NavLink>
           : null }
         { !userData.user ? <NavLink className={classes.links} to='/Login'>Login</NavLink> : null }

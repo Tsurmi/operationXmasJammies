@@ -2,15 +2,15 @@ import React from 'react'
 import Layout from './structure/Layout'
 import {BrowserRouter} from 'react-router-dom'
 import 'typeface-roboto'
-import DrinkDataProvider from './DrinkDataProvider'
+import GiftDataProvider from './GiftDataProvider'
 import UserDataProvider from './UserDataProvider'
 
 const App = () =>
   <BrowserRouter>
     <UserDataProvider>
-      <DrinkDataProvider>
+      <GiftDataProvider>
         <Layout />
-      </DrinkDataProvider>
+      </GiftDataProvider>
     </UserDataProvider>
   </BrowserRouter>
 

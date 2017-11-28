@@ -3,7 +3,7 @@ import injectSheet from 'react-jss'
 import PropTypes from 'prop-types'
 // import ButtonBase from 'material-ui/ButtonBase'
 // import Typography from 'material-ui/Typography'
-import DrinkCard from '../admin/drink/DrinkCard'
+import GiftCard from '../admin/gift/GiftCard'
 
 const styles = {
   mainDiv: {
@@ -127,25 +127,25 @@ const Randomizer = (props) => {
 
       <div className={props.classes.randomizerCont}>
         {
-          props.drinkData && props.drinkData.randomDrink
+          props.giftData && props.giftData.randomGift
             ? <div className={props.classes.btnBack}>
-              <button type='button' className={props.classes.randoBtn} onClick={props.drinkData.getRandomDrink}>Randomizer 2000</button>
+              <button type='button' className={props.classes.randoBtn} onClick={props.giftData.getRandomGift}>Randomizer 2000</button>
             </div>
             :
             null
         }
         <div className={props.classes.randomDrinkCont}>
           {
-            props.drinkData && props.drinkData.randomDrink
-              ? <DrinkCard
-                key={props.drinkData.randomDrink._id}
-                drink={props.drinkData.randomDrink}
+            props.giftData && props.giftData.randomGift
+              ? <GiftCard
+                key={props.giftData.randomGift._id}
+                drink={props.giftData.randomGift}
               />
               :
               <div className={props.classes.loading}>
                 <img src='https://media1.giphy.com/media/yggg5drtlCO64/giphy.gif'
                   className={props.classes.loadingImg}
-                  onClick={props.drinkData.getRandomDrink}
+                  onClick={props.giftData.getRandomGift}
                 />
                 <h1> Step Into the Randomizer 2000! </h1>
                 <p> Click Picture to Start Your Journey</p>
@@ -153,9 +153,9 @@ const Randomizer = (props) => {
           }
         </div>
         {
-          props.drinkData && props.drinkData.randomDrink
+          props.giftData && props.giftData.randomGift
             ? <div className={props.classes.btnBackBottom}>
-              <button type='button' className={props.classes.randoBtn} onClick={props.drinkData.getRandomDrink}>Randomizer 2000</button>
+              <button type='button' className={props.classes.randoBtn} onClick={props.giftData.getRandomGift}>Randomizer 2000</button>
             </div>
             :
             null
@@ -166,7 +166,7 @@ const Randomizer = (props) => {
 }
 Randomizer.propTypes = {
   classes: PropTypes.object.isRequired,
-  randomDrink: PropTypes.func.isRequired,
-  drinkData: PropTypes.object.isRequired
+  randomGift: PropTypes.func.isRequired,
+  giftData: PropTypes.object.isRequired
 }
 export default enhancer(Randomizer)

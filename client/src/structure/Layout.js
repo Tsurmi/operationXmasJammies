@@ -5,15 +5,15 @@ import Main from './Main'
 import PropTypes from 'prop-types'
 
 const propTypes = {
-  drinkData: PropTypes.func.isRequired,
+  giftData: PropTypes.func.isRequired,
   userData: PropTypes.func.isRequired
 }
 
-const Layout = ({drinkData, userData}) => {
+const Layout = ({giftData, userData}) => {
   return (
     <div>
       <Header userData={userData} />
-      <Main drinkData={drinkData} userData={userData} />
+      <Main giftData={giftData} userData={userData} />
       <Footer />
     </div>
   )

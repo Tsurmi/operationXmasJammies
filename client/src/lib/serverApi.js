@@ -29,17 +29,17 @@ const handleErrors = response => {
   }
   return response
 }
-export const getAllDrinks = () => ajaxRequest({url: '/api/drinks', method: 'GET'})
+export const getAllGifts = () => ajaxRequest({url: '/api/gifts', method: 'GET'})
 
-export const getDrinkById = (drinkId) => ajaxRequest({url: `/api/drinks/id/${drinkId}`, method: 'GET'})
+export const getGiftById = (giftId) => ajaxRequest({url: `/api/gifts/id/${giftId}`, method: 'GET'})
 
-export const addDrink = (drink) => ajaxRequest({url: '/api/drinks', method: 'POST', body: drink})
+export const addGift = (gift) => ajaxRequest({url: '/api/gifts', method: 'POST', body: gift})
 
-export const updateDrink = (drinkId, drink) => ajaxRequest({url: `/api/drinks/id/${drinkId}`, method: 'PUT', body: drink})
+export const updateGift = (giftId, gift) => ajaxRequest({url: `/api/gifts/id/${giftId}`, method: 'PUT', body: gift})
 
-export const deleteDrink = (drinkId) => ajaxRequest({url: `/api/drinks/id/${drinkId}`, method: 'DELETE'})
+export const deleteGift = (giftId) => ajaxRequest({url: `/api/gifts/id/${giftId}`, method: 'DELETE'})
 
-export const getRandomDrink = () => ajaxRequest({url: '/api/drinks/random', method: 'GET'})
+export const getRandomGift = () => ajaxRequest({url: '/api/gifts/random', method: 'GET'})
 
 export const getAllUsers = () => ajaxRequest({url: '/api/users', method: 'GET'})
 

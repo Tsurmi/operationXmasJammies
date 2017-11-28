@@ -1,6 +1,5 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import NestedList from './nestedList'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 
@@ -14,7 +13,7 @@ const styles = {
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    backgroundImage: 'url("https://burst.shopifycdn.com/photos/hot-coffee-cinemagraph.gif")',
+    backgroundImage: 'url("https://static.pexels.com/photos/77078/theme-christmas-77078.jpeg")',
     clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0 100%)',
     position: 'relative',
     justifyContent: 'center'
@@ -56,13 +55,18 @@ const styles = {
   iconDiv: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
     marginLeft: '10%',
     marginRight: '10%',
-    marginBottom: '100px'
+    marginBottom: '100px',
+    marginTop: '100px'
+  },
+  iconImgContainer: {
+    textAlign: 'center',
+    width: '50%',
+    border: 'solid red'
   },
   iconImg: {
-    textAlign: 'center'
+    width: '50%'
   },
   futureTitle: {
     textAlign: 'center',
@@ -253,6 +257,40 @@ const styles = {
     textAlign: 'center',
     marginTop: '100px',
     marginBottom: '100px'
+  },
+  introContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  leftColumn: {
+    width: '60%',
+    paddingLeft: '5%',
+    paddingRight: '5%'
+  },
+  rightColumn: {
+    width: '40%'
+  },
+  introPic: {
+    width: '100%'
+  },
+  introTitle: {
+    fontFamily: 'Nunito',
+    textTransform: 'capitalize'
+  },
+  explainerContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginLeft: '10%',
+    marginRight: '10%'
+  },
+  explainerLeft: {
+    width: '50%',
+    textAlign: 'center'
+  },
+  explainerRight: {
+    width: '50%',
+    textAlign: 'center'
   }
 }
 
@@ -267,135 +305,65 @@ const Home = (props) => {
     <div>
       <div className={props.classes.mainDiv}>
         <div className={props.classes.heroTitleContainer}>
-          <h1 className={props.classes.heroTitle}> Xmas Jammies TEST 2000 </h1>
-          <h3 className={props.classes.heroSubTitle}>A Coffee App for Coffee People</h3>
+          <h1 className={props.classes.heroTitle}> Operation Xmas Jammies </h1>
+          <h3 className={props.classes.heroSubTitle}>Spreading Christmas Cheer One Pair of Jammies at a Time</h3>
         </div>
         <div className={props.classes.heroGraphicContainer}>
-          <img className={props.classes.heroGraphic} src='http://www.starbucks.com.sg/img/mobile-app/iphone_android-rev.png?20160827' />
+          <img className={props.classes.heroGraphic} src='http://icons.iconarchive.com/icons/psdblast/flat-christmas/512/christmas-tree-icon.png' />
         </div>
       </div>
       <div className={props.classes.steps}>
-        <h1> Three Easy Steps to Get Your Coffee </h1>
+        <h1> Giving Gifts Never Felt So Good </h1>
       </div>
+
+      <div className={props.classes.introContainer}>
+        <div className={props.classes.leftColumn}>
+          <h1 className={props.classes.introTitle}>
+          PKS Affects only xxx kids in the world
+          </h1>
+          <p>
+          This holiday season give the gift of comfort and coziness to
+          a child with PKS This holiday season give the gift of comfort and coziness to
+          a child with PKS This holiday season give the gift of comfort and coziness to
+          a child with PKS This holiday season give the gift of comfort and coziness to
+          a child with PKS This holiday season give the gift of comfort and coziness to
+          a child with PKS
+          </p>
+        </div>
+        <div className={props.classes.rightColumn}>
+          <img className={props.classes.introPic} src='http://d-cadou.com/images/imageManager/gift.png' />
+        </div>
+      </div>
+
+      <div className={props.classes.explainerContainer}>
+        <div className={props.classes.explainerLeft}>
+          <h1> To Receive </h1>
+          To request a Gift please click on the link below and
+          fill out the form with the necessary information
+        </div>
+        <div className={props.classes.explainerRight}>
+          <h1> To Give </h1>
+          To fulfill a Gift please click on the link below and
+          visit our Giving Tree page to see the available Gifts
+          that need to be fulfilled.
+        </div>
+      </div>
+
       <div className={props.classes.iconDiv}>
-        <div className={props.classes.iconImg}>
-          <img src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
-          <h1>Open App</h1>
-        </div>
-        <div className={props.classes.iconImg}>
-          <img src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
-          <Link to={'/Randomizer'}>
-            <h1>Click Randomizer</h1>
+        <div className={props.classes.iconImgContainer}>
+          <img className={props.classes.iconImg} src='http://www.youthvillage.org/images/gift-loop.gif' />
+          <Link to={'/AllGifts'}>
+            <h1>Receive a Gift</h1>
           </Link>
-
         </div>
-        <div className={props.classes.iconImg}>
-          <img src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
-          <h1>Get Drink</h1>
-        </div>
-      </div>
-      <div className={props.classes.comingSoon}>
-        <h1 className={props.classes.comingSoonTitle}> Coming Soon to A Mobile Device Near You</h1>
-      </div>
-
-      <div className={props.classes.futureContainer}>
-        <div className={props.classes.futureTitle}>
-          <h1> Welcome </h1>
-        </div>
-        <div className={props.classes.futureDividerContainer}>
-          <div className={props.classes.futureDivider} />
-        </div>
-        <div className={props.classes.futureSubTitleContainer}>
-          <div className={props.classes.futureSubTitle}>
-            <p>Tired of Deciding What Delicious Coffee Drink to Get? Worry no more because the Drink Randomizer 2000 is here to save the day!</p>
-          </div>
-        </div>
-      </div>
-      <div className={props.classes.futureIconBucket}>
-
-        <div className={props.classes.futureIconBucketLeft}>
-          <div className={props.classes.leftBucket}>
-            <div className={props.classes.leftBucketText}>
-              With the click of a button you can put all of your worries aside and let our Randomizer 2000 do the heavy lifting
-            </div>
-            <div className={props.classes.leftBucketIcon}>
-              <img className={props.classes.leftImg} src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
-            </div>
-          </div>
-
-          <div className={props.classes.leftBucket}>
-            <div className={props.classes.leftBucketText}>
-              Take advantage of our currated list of delicious beverages with the click of a button.
-            </div>
-            <div className={props.classes.leftBucketIcon}>
-              <img className={props.classes.leftImg} src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
-            </div>
-          </div>
-
-        </div>
-        <div className={props.classes.futureIconBucketCenter}>
-          <img src='https://cdn4.iconfinder.com/data/icons/Starbucks_coffee/PNG/512x512/starbucks_coffee_3.png' />
-        </div>
-        <div className={props.classes.futureIconBucketRight}>
-          <div className={props.classes.leftBucket}>
-            <div className={props.classes.leftBucketIcon}>
-              <img className={props.classes.leftImg} src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
-            </div>
-            <div className={props.classes.leftBucketText}>
-              If you are not finding a drink to your liking you can add drinks to our database.  Then simply Randomize away!
-            </div>
-          </div>
-          <div className={props.classes.leftBucket}>
-            <div className={props.classes.leftBucketIcon}>
-              <img className={props.classes.leftImg} src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Coffee-cup-icon.png' />
-            </div>
-            <div className={props.classes.leftBucketText}>
-              All of your favorite drinks that normally are too difficult to pick from.  Our Randomizer 2000 makes your life easier.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={props.classes.futureButton}>
-        <div className={props.classes.buttonContainer}>
-          <Link className={props.classes.EditButton} to={'/Randomizer'}>
-            Randomizer 2000
+        <div className={props.classes.iconImgContainer}>
+          <img className={props.classes.iconImg} src='http://www.youthvillage.org/images/gift-loop.gif' />
+          <Link to={'/AllGifts'}>
+            <h1>Fulfill a Gift</h1>
           </Link>
         </div>
       </div>
-      <div className={props.classes.parallaxDiv}>
-        <div className={props.classes.heroText}>
-          <h1 className={props.classes.heroTitle}> Friends with Benefits ;) </h1>
-          <h3 className={props.classes.heroSubTitle}>Become a Premium Member to Unlock All The Features</h3>
-          <div className={props.classes.buttonContainer2}>
-            <Link className={props.classes.EditButton2} to={'/Randomizer'}>
-              Randomizer 2000
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div className={props.classes.futureTitle2}>
-          <h1> Premium Membership...100% Free! </h1>
-        </div>
-        <div className={props.classes.futureBucket2}>
-          <div className={props.classes.futurePic}>
-            <img className={props.classes.futurePicImg} src='https://burst.shopifycdn.com/photos/pretty-woman-sipping-coffee_925x@2x.jpg' />
-          </div>
-          <div className={props.classes.futureContent2}>
-            <NestedList />
-          </div>
-        </div>
-        <div className={props.classes.cta}>
-          <div>
-            <h1>What are you waiting for?</h1>
-          </div>
-          <div className={props.classes.buttonContainer2}>
-            <Link className={props.classes.EditButton2} to={'/Randomizer'}>
-              Randomizer 2000
-            </Link>
-          </div>
-        </div>
-      </div>
+
     </div>
   )
 }

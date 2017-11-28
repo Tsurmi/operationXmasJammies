@@ -2,7 +2,7 @@ const express = require('express')
 const session = require('express-session')
 const passport = require('passport')
 const bodyParser = require('body-parser')
-const drinkRoutes = require('./routes/drink')
+const giftRoutes = require('./routes/gift')
 const userRoutes = require('./routes/user')
 const mongoose = require('mongoose')
 
@@ -27,7 +27,7 @@ require('./passport/routes')(app, passport) // load our routes and pass in our a
 
 app.use(require('./config/error-handler'))
 
-app.use('/api/drinks', drinkRoutes)
+app.use('/api/gifts', giftRoutes)
 app.use('/api/users', userRoutes)
 
 const server = app.listen(port, () => console.log(`Running on port: ${port}`))

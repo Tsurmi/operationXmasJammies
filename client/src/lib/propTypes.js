@@ -18,17 +18,23 @@ export const userData = PropTypes.shape({
   logoutUser: PropTypes.func.isRequired
 })
 
-export const drink = PropTypes.shape({
+export const gift = PropTypes.shape({
   _id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  isDairy: PropTypes.bool.isRequired,
-  isSweet: PropTypes.bool.isRequired
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  age: PropTypes.string.isRequired,
+  jammieSize: PropTypes.string.isRequired,
+  street: PropTypes.string.isRequired,
+  mailingState: PropTypes.string.isRequired,
+  zipCode: PropTypes.string.isRequired,
+  specialInstructions: PropTypes.string.isRequired,
+  story: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
 })
 
-export const drinkData = PropTypes.shape({
+export const giftData = PropTypes.shape({
   isLoaded: PropTypes.bool.isRequired,
-  addDrink: PropTypes.func.isRequired,
-  randomDrink: PropTypes.func.isRequired
+  addGift: PropTypes.func.isRequired,
+  randomGift: PropTypes.func.isRequired
 
 }).isRequired
