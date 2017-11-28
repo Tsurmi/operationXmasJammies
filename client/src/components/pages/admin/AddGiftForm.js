@@ -45,13 +45,13 @@ const propTypes = {
   onLastNameChanged: PropTypes.func.isRequired,
   onAgeChanged: PropTypes.func.isRequired,
   onStreetChanged: PropTypes.func.isRequired,
+  onCityChanged: PropTypes.func.isRequired,
   onMailingStateChanged: PropTypes.func.isRequired,
   onZipCodeChanged: PropTypes.func.isRequired,
   onSpecialChanged: PropTypes.func.isRequired,
   onStoryChanged: PropTypes.func.isRequired,
   onJammieSizeChanged: PropTypes.func.isRequired,
   onImageChanged: PropTypes.func.isRequired,
-  onNickNameChanged: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
 
@@ -69,43 +69,57 @@ const AddGiftForm = props => {
             <h4> Required Information </h4>
             <p> This is the information only a person who is fulfilling
             the Gift will see.  Only after they provide their contact information </p>
+            <p>First Name:</p>
             <Input
-              placeholder='First Name (required)'
+              placeholder={props.firstName}
               onChange={props.onFirstNameChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
+            <p>Last Name:</p>
             <Input
-              placeholder='Last Name (required)'
+              placeholder={props.lastName}
               onChange={props.onLastNameChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
+            <p>Jammie Size:</p>
             <Input
-              placeholder='Jammie Size (required)'
+              placeholder={props.jammieSize}
               onChange={props.onJammieSizeChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
+            <p>Mailing Street:</p>
             <Input
-              placeholder='Mailing Street (required)'
+              placeholder={props.street}
               onChange={props.onStreetChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
+            <p>Mailing City:</p>
             <Input
-              placeholder='Mailing State (required)'
+              placeholder={props.city}
+              onChange={props.onCityChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+            <p>Mailing State:</p>
+            <Input
+              placeholder={props.mailingState}
               onChange={props.onMailingStateChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
+            <p>Mailing Zip Code:</p>
             <Input
-              placeholder='Mailing Zip Code (required)'
+              placeholder={props.zipCode}
               onChange={props.onZipCodeChanged}
               inputProps={{
                 'aria-label': 'Description'
@@ -114,36 +128,34 @@ const AddGiftForm = props => {
             <h4> Optional Information </h4>
             <p> This is the information everyone will see.
             Fill out as much of it as you like </p>
+            <p>Age:</p>
             <Input
-              placeholder='Nickname (optional)'
-              onChange={props.onNickNameChanged}
-              inputProps={{
-                'aria-label': 'Description'
-              }}
-            />
-            <Input
-              placeholder='Age (optional)'
+              placeholder={props.age}
               onChange={props.onAgeChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
+            <p>Image:</p>
             <Input
-              placeholder='Add a Photo URL (optional)'
+              placeholder={props.image}
               onChange={props.onImageChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
+            <img className={props.classes.formImage} src={props.image} />
+            <p>Special Instructions:</p>
             <Input
-              placeholder='Special Instructions (optional)'
+              placeholder={props.specialInstructions}
               onChange={props.onSpecialChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
+            <p>Story:</p>
             <Input
-              placeholder='Story (optional)'
+              placeholder={props.story}
               onChange={props.onStoryChanged}
               inputProps={{
                 'aria-label': 'Description'

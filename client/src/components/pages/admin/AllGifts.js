@@ -51,24 +51,11 @@ const styles = {
     fontFamily: 'Bookman',
     textShadow: '1px 1px 2px black'
   },
-  columnContainer: {
+  giftCardContainer: {
     display: 'flex',
-    flexDirection: 'row'
-  },
-  leftColumn: {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '33.33%'
-  },
-  centerColumn: {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '33.33%'
-  },
-  rightColumn: {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '33.33%'
+    flexDirection: 'row',
+    width: '100%',
+    flexWrap: 'wrap'
   }
 }
 
@@ -81,32 +68,19 @@ const AllGifts = ({giftData, classes}) => {
         <h1 className={classes.heroTitle}> Operation Xmas Jammies </h1>
         <h3 className={classes.heroSubTitle}> Spread the Cheer by buying some Pajamas </h3>
       </div>
-      <div className={classes.columnContainer}>
-
-        <div className={classes.leftColumn}>
-          <h1> Left </h1>
-        </div>
-        <div className={classes.centerColumn}>
-          <div className={classes.giftCardContainer} >
-            {
-              giftData && giftData.gifts && giftData.gifts.length > 0
-                ? giftData.gifts.map(gift =>
-                  <div className={classes.drinkCardCard}>
-                    <GiftCard
-                      key={gift._id}
-                      gift={gift}
-                      onDelete={() => giftData.deleteGift(gift._id)}
-                    />
-                  </div>
-                ) : <h1> No Gifts </h1>
-            }
-          </div>
-        </div>
-
-        <div className={classes.rightColumn}>
-        <h1> Right </h1>
-        </div>
-
+      <div className={classes.giftCardContainer} >
+        {
+          giftData && giftData.gifts && giftData.gifts.length > 0
+            ? giftData.gifts.map(gift =>
+              <div className={classes.drinkCardCard}>
+                <GiftCard
+                  key={gift._id}
+                  gift={gift}
+                  onDelete={() => giftData.deleteGift(gift._id)}
+                />
+              </div>
+            ) : <h1> No Gifts </h1>
+        }
       </div>
     </div>
   )

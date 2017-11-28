@@ -14,12 +14,12 @@ class AddGiftContainer extends Component {
     lastName: undefined,
     age: undefined,
     street: undefined,
+    city: undefined,
     mailingState: undefined,
     zipCode: undefined,
     specialInstructions: undefined,
     story: undefined,
     jammieSize: undefined,
-    nickName: undefined,
     image: undefined
   }
 
@@ -33,6 +33,10 @@ class AddGiftContainer extends Component {
 
   onAgeChanged = (event) => this.setState({
     age: event.target.value
+  })
+
+  onCityChanged = (event) => this.setState({
+    city: event.target.value
   })
 
   onStreetChanged = (event) => this.setState({
@@ -51,10 +55,6 @@ class AddGiftContainer extends Component {
     specialInstructions: event.target.value
   })
 
-  onNickNameChanged = (event) => this.setState({
-    nickName: event.target.value
-  })
-
   onImageChanged = (event) => this.setState({
     image: event.target.value
   })
@@ -70,6 +70,7 @@ class AddGiftContainer extends Component {
   onSubmit = (event) => {
     event.preventDefault()
     this.props.giftData.addGift(this.state)
+    this.props.history.push('/AllGifts')
     console.log('add button worked🍾')
     alert(
       `Congrats, you added a
@@ -91,13 +92,13 @@ class AddGiftContainer extends Component {
         onLastNameChanged={this.onLastNameChanged}
         onAgeChanged={this.onAgeChanged}
         onStreetChanged={this.onStreetChanged}
+        onCityChanged={this.onCityChanged}
         onMailingStateChanged={this.onMailingStateChanged}
         onZipCodeChanged={this.onZipCodeChanged}
         onSpecialChanged={this.onSpecialChanged}
         onStoryChanged={this.onStoryChanged}
         onJammieSizeChanged={this.onJammieSizeChanged}
         onImageChanged={this.onImageChanged}
-        onNickNameChanged={this.onNickNameChanged}
         onSubmit={this.onSubmit}
       />
     )

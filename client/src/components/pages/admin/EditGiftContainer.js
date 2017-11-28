@@ -17,11 +17,11 @@ class EditGiftContainer extends Component {
     age: undefined,
     jammieSize: undefined,
     street: undefined,
+    city: undefined,
     mailingState: undefined,
     zipCode: undefined,
     specialInstructions: undefined,
     story: undefined,
-    nickName: undefined,
     image: undefined
   }
 
@@ -31,10 +31,10 @@ class EditGiftContainer extends Component {
       this.setState({
         firstName: this.props.giftData.gift.firstName,
         lastName: this.props.giftData.gift.lastName,
-        nickName: this.props.giftData.gift.nickName,
         age: this.props.giftData.gift.age,
         jammieSize: this.props.giftData.gift.jammieSize,
         street: this.props.giftData.gift.street,
+        city: this.props.giftData.gift.city,
         mailingState: this.props.giftData.gift.mailingState,
         zipCode: this.props.giftData.gift.zipCode,
         specialInstructions: this.props.giftData.gift.specialInstructions,
@@ -47,8 +47,6 @@ class EditGiftContainer extends Component {
 
   onFirstNameChanged = (event) => this.setState({firstName: event.target.value})
 
-  onNickNameChanged = (event) => this.setState({nickName: event.target.value})
-
   onImageChanged = (event) => this.setState({image: event.target.value})
 
   onLastNameChanged = (event) => this.setState({lastName: event.target.value})
@@ -58,6 +56,8 @@ class EditGiftContainer extends Component {
   onJammieSizeChanged = (event) => this.setState({jammieSize: event.target.value})
 
   onStreetChanged = (event) => this.setState({street: event.target.value})
+
+  onCityChanged = (event) => this.setState({city: event.target.value})
 
   onMailingStateChanged = (event) => this.setState({mailingState: event.target.value})
 
@@ -81,10 +81,10 @@ class EditGiftContainer extends Component {
         {...this.state}
         onFirstNameChanged={this.onFirstNameChanged}
         onLastNameChanged={this.onLastNameChanged}
-        onNickNameChanged={this.onNickNameChanged}
         onAgeChanged={this.onAgeChanged}
         onJammieSizeChanged={this.onJammieSizeChanged}
         onStreetChanged={this.onStreetChanged}
+        onCityChanged={this.onCityChanged}
         onMailingStateChanged={this.onMailingStateChanged}
         onZipCodeChanged={this.onZipCodeChanged}
         onSpecialChanged={this.onSpecialChanged}

@@ -15,7 +15,6 @@ const propTypes = {
   specialInstructions: PropTypes.string.isRequired,
   story: PropTypes.string.isRequired,
   jammieSize: PropTypes.string.isRequired,
-  nickName: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired
 }
 
@@ -103,10 +102,14 @@ const GiftCard = props => {
   const { classes } = props
   return (
     <div className={classes.drinkItem}>
-      <img className={classes.thumbnail} src={props.gift.image} />
+      <img
+        className={classes.thumbnail}
+        src={
+          props.image ? props.image :
+            'https://static.pexels.com/photos/260184/pexels-photo-260184.jpeg'}
+      />
       <div className={classes.imageTitle}>
-        <h1 className={classes.drinkTitle}> {props.gift.firstName} {props.gift.lastName}</h1>
-        <h1> {props.gift.nickName} </h1>
+        <h1 className={classes.drinkTitle}> {props.gift.firstName} </h1>
       </div>
       <div className={classes.drinkChoices}>
         <div className={classes.styleWords}>
