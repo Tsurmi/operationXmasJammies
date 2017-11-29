@@ -40,6 +40,7 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "react-spinners": "^0.1.8"
+    "react-spinners": "^0.1.8",
+    "recompose": "^0.26.0"
   }
 }
