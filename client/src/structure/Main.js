@@ -34,7 +34,7 @@ const Main = ({giftData, userData, classes}) => {
       <Route path='/'exact component={Home} />
       <Route path='/AddGift' render={() => <AddGiftContainer giftData={giftData} />} />
       <Route path='/AllGifts' render={() => <AllGifts giftData={giftData} />} />
-      <Route path='/:giftId' render={() => <GiftPage giftData={giftData} />} />
+      <Route path='/Gift/:giftId' render={() => <GiftPage giftData={giftData} />} />
       <Route path='/EditGift/:giftId' render={() => <EditGiftContainer giftData={giftData} />} />
       <Route path='/ListUsers' render={() => <ListUsers />} />
       <Route path='/CreateUser' render={() => <CreateUserContainer userData={userData} />} />

@@ -31,9 +31,40 @@ const styles = {
     borderRadius: '50px 50px 50px 50px',
     paddingBottom: '20px'
   },
+  container: {
+    position: 'relative',
+    width: '100%',
+    '&:hover, &:overlay': {
+      height: '100%',
+      border: 'solid red'
+    }
+  },
+  overlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#008CBA',
+    overflow: 'hidden',
+    width: '100%',
+    height: 0,
+    transition: ['.5s', 'ease']
+  },
   thumbnail: {
+    display: 'block',
     width: '100%',
     borderRadius: '50px 50px 0 0'
+  },
+  imageText: {
+    whiteSpace: 'nowrap',
+    color: 'white',
+    fontSize: '20px',
+    position: 'absolute',
+    overflow: 'hidden',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    msTransform: 'translate(-50%, -50%)'
   },
   giftTitle: {
     textAlign: 'center'
@@ -102,29 +133,41 @@ const enhancer = injectSheet(styles)
 const GiftCard = props => {
   const { classes } = props
   return (
-    <div className={classes.drinkItem}>
-      <img
-        className={classes.thumbnail}
-        src={
-          props.gift.image ? props.gift.image :
-            'https://static.pexels.com/photos/260184/pexels-photo-260184.jpeg'}
-      />
-      <div className={classes.imageTitle}>
-        <h1 className={classes.giftTitle}> {props.gift.firstName} </h1>
-      </div>
-      <div className={classes.giftDetails}>
-        <p>Age: {props.gift.age}</p>
-        <p>Jammie Size: {props.gift.jammieSize}</p>
-        <p>Special Instructions: {props.gift.specialInstructions}</p>
-        <p>Story: {props.gift.story}</p>
-      </div>
-      <div className={classes.buttonContainer}>
-        <Link className={classes.EditButton} to={`/EditGift/${props.gift._id}`}>
-          Edit
-        </Link>
-      </div>
-      <div className={classes.buttonContainer}>
-        <button className={classes.button} onClick={props.onDelete}>Delete</button>
+    <div>
+      <div className={classes.drinkItem}>
+        <div className={classes.container}>
+          <img
+            className={classes.thumbnail}
+            src={
+              props.gift.image ? props.gift.image :
+                'https://static.pexels.com/photos/260184/pexels-photo-260184.jpeg'}
+          />
+          <div className={classes.overlay}>
+            <div className={classes.imageText}>Testing</div>
+          </div>
+        </div>
+        <div className={classes.imageTitle}>
+          <h1 className={classes.giftTitle}> {props.gift.firstName} </h1>
+        </div>
+        <div className={classes.giftDetails}>
+          <p>Age: {props.gift.age}</p>
+          <p>Jammie Size: {props.gift.jammieSize}</p>
+          <p>Special Instructions: {props.gift.specialInstructions}</p>
+          <p>Story: {props.gift.story}</p>
+        </div>
+        <div className={classes.buttonContainer}>
+          <Link className={classes.EditButton} to={`/EditGift/${props.gift._id}`}>
+            Edit
+          </Link>
+        </div>
+        <div className={classes.buttonContainer}>
+          <button className={classes.button} onClick={props.onDelete}>Delete</button>
+        </div>
+        <div className={classes.buttonContainer}>
+          <Link className={classes.EditButton} to={`/Gift/${props.gift._id}`}>
+            Gift Page
+          </Link>
+        </div>
       </div>
     </div>
   )
