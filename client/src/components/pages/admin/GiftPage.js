@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import injectSheet from 'react-jss'
 import {compose} from 'recompose'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import * as AppPropTypes from '../../../lib/propTypes'
 import PropTypes from 'prop-types'
 
@@ -53,9 +53,68 @@ const styles = {
   },
   giftCardContainer: {
     display: 'flex',
+    width: '100%',
+    justifyContent: 'center'
+  },
+  giftContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    width: '50%',
+    alignItems: 'center',
+    marginTop: '2%'
+  },
+  thumbnail: {
+    width: '100%',
+    borderRadius: '50px 50px 0 0'
+  },
+  nameContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  EditButton: {
+    backgroundColor: '#494949',
+    color: 'white',
+    border: 'solid #34495e 2px',
+    padding: 10,
+    fontSize: 20,
+    borderRadius: 4,
+    textAlign: 'center',
+    textDecoration: 'none'
+  },
+  buttonContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '45%',
+    marginTop: 10,
+    justifyContent: 'space-around',
+    background: '#ecf0f1'
+  },
+  EditButtonBuy: {
+    backgroundColor: 'red',
+    color: 'white',
+    border: 'solid #34495e 2px',
+    padding: 10,
+    fontSize: 20,
+    borderRadius: 4,
+    textAlign: 'center',
+    textDecoration: 'none'
+  },
+  buttonContainerBuy: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '45%',
+    marginTop: 10,
+    justifyContent: 'space-around',
+    background: 'red'
+  },
+  buttonMainContainer: {
+    display: 'flex',
     flexDirection: 'row',
     width: '100%',
-    flexWrap: 'wrap'
+    justifyContent: 'space-between',
+    marginBottom: 25
   }
 }
 
@@ -70,7 +129,7 @@ const styles = {
 class GiftPage extends Component {
   componentDidMount () {
     console.log(this.props.match.params.giftId) // extract the ID out of the url
-    // we then use the ID to to look up the gift. 
+    // we then use the ID to to look up the gift.
     // We can only use Match because we used withRouter
     this.props.giftData.getGiftById(this.props.match.params.giftId)
     // ^ Now we have a gift!
@@ -86,9 +145,41 @@ class GiftPage extends Component {
         <div className={this.props.classes.giftCardContainer} >
           {
             this.props.giftData.gift
-              ? <h4> {this.props.giftData.gift.story}</h4>
+              ?
+              <div className={this.props.classes.giftContainer}>
+                <img
+                  className={this.props.classes.thumbnail}
+                  src={
+                    this.props.giftData.gift.image ? this.props.giftData.gift.image :
+                      'https://static.pexels.com/photos/260184/pexels-photo-260184.jpeg'}
+                />
+                <div className={this.props.classes.nameContainer}>
+                  <p> Name: </p>
+                  <h1> {this.props.giftData.gift.firstName} </h1>
+                </div>
+                <p> Jammie Size: </p>
+                <h2> {this.props.giftData.gift.jammieSize} </h2>
+                <p> Special Instructions: </p>
+                <p> {this.props.giftData.gift.specialInstructions}</p>
+                <p> Story: </p>
+                <p> {this.props.giftData.gift.story} </p>
+                <div className={this.props.classes.buttonMainContainer}>
+                  <div className={this.props.classes.buttonContainer}>
+                    <Link className={this.props.classes.EditButton} to={'/AllGifts'}>
+                      Return to All Gifts
+                    </Link>
+                  </div>
+                  <div className={this.props.classes.buttonContainerBuy}>
+                    <Link className={this.props.classes.EditButtonBuy} to={'/AllGifts'}>
+                      Add to Cart!
+                    </Link>
+                  </div>
+                </div>
+
+              </div>
               : <p>Error Getting Gift</p>
           }
+
         </div>
       </div>
     )

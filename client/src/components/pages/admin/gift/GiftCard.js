@@ -1,17 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from 'material-ui/styles'
 import {Link} from 'react-router-dom'
 import injectSheet from 'react-jss'
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button } from 'reactstrap'
 
 const propTypes = {
   classes: PropTypes.object.isRequired,
   firstName: PropTypes.string.isRequired,
-  lastName: PropTypes.string.isRequired,
   age: PropTypes.string.isRequired,
-  street: PropTypes.string.isRequired,
-  mailingState: PropTypes.string.isRequired,
-  zipCode: PropTypes.string.isRequired,
   specialInstructions: PropTypes.string.isRequired,
   story: PropTypes.string.isRequired,
   jammieSize: PropTypes.string.isRequired,
@@ -19,112 +16,14 @@ const propTypes = {
 }
 
 const styles = {
-  drinkItem: {
-    background: '#ecf0f1',
+  kidUserButtons: {
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
-    width: '100%',
-    margin: 25,
-    borderRadius: '50px 50px 50px 50px',
-    paddingBottom: '20px'
+    justifyContent: 'space-evenly',
+    marginBottom: '5%'
   },
-  container: {
-    position: 'relative',
-    width: '100%',
-    '&:hover, &:overlay': {
-      height: '100%',
-      border: 'solid red'
-    }
-  },
-  overlay: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#008CBA',
-    overflow: 'hidden',
-    width: '100%',
-    height: 0,
-    transition: ['.5s', 'ease']
-  },
-  thumbnail: {
-    display: 'block',
-    width: '100%',
-    borderRadius: '50px 50px 0 0'
-  },
-  imageText: {
-    whiteSpace: 'nowrap',
-    color: 'white',
-    fontSize: '20px',
-    position: 'absolute',
-    overflow: 'hidden',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    msTransform: 'translate(-50%, -50%)'
-  },
-  giftTitle: {
-    textAlign: 'center'
-  },
-  imageTitle: {
-    background: '#ffffff',
-    width: '100%'
-  },
-  giftDetails: {
+  allUserButtons: {
     display: 'flex',
-    flexDirection: 'column',
-    background: '#ecf0f1',
-    textAlign: 'center'
-  },
-  p: {
-    fontSize: 12
-  },
-  price: {
-    fontSize: 50
-  },
-  button: {
-    backgroundColor: '#494949',
-    color: 'white',
-    border: 'solid #34495e 2px',
-    padding: 10,
-    fontSize: 20,
-    borderRadius: 4
-  },
-  EditButton: {
-    backgroundColor: '#494949',
-    color: 'white',
-    border: 'solid #34495e 2px',
-    padding: 10,
-    fontSize: 20,
-    borderRadius: 4,
-    textAlign: 'center',
-    textDecoration: 'none'
-  },
-  buttonContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '75%',
-    marginBottom: 10,
-    justifyContent: 'space-around',
-    background: '#ecf0f1'
-  },
-  styleWords: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-around'
-  },
-  styleImg: {
-    display: 'flex',
-    paddingBottom: '10px'
-  },
-  styleImgMini: {
-    width: '100%'
-  },
-  boolImg: {
-    width: '35%'
+    justifyContent: 'center'
   }
 }
 
@@ -134,41 +33,28 @@ const GiftCard = props => {
   const { classes } = props
   return (
     <div>
-      <div className={classes.drinkItem}>
-        <div className={classes.container}>
-          <img
-            className={classes.thumbnail}
-            src={
-              props.gift.image ? props.gift.image :
-                'https://static.pexels.com/photos/260184/pexels-photo-260184.jpeg'}
-          />
-          <div className={classes.overlay}>
-            <div className={classes.imageText}>Testing</div>
+      <Card>
+        <CardImg top width='100%' src={
+          props.gift.image ? props.gift.image :
+            'https://static.pexels.com/photos/260184/pexels-photo-260184.jpeg'} alt='Gift Image' />
+        <CardBody>
+          <CardTitle>{props.gift.firstName}</CardTitle>
+          <CardSubtitle>Age: {props.gift.age}</CardSubtitle>
+          <CardText>
+            <p>Story: {props.gift.story}</p>
+            <p>Special Instructions: {props.gift.specialInstructions}</p>
+          </CardText>
+          <div className={classes.kidUserButtons}>
+            <Link to={`/EditGift/${props.gift._id}`}>
+              <Button outline color='primary'>Edit Gift</Button>
+            </Link>
+            <Button outline color='primary'onClick={props.onDelete}>Delete</Button>
           </div>
-        </div>
-        <div className={classes.imageTitle}>
-          <h1 className={classes.giftTitle}> {props.gift.firstName} </h1>
-        </div>
-        <div className={classes.giftDetails}>
-          <p>Age: {props.gift.age}</p>
-          <p>Jammie Size: {props.gift.jammieSize}</p>
-          <p>Special Instructions: {props.gift.specialInstructions}</p>
-          <p>Story: {props.gift.story}</p>
-        </div>
-        <div className={classes.buttonContainer}>
-          <Link className={classes.EditButton} to={`/EditGift/${props.gift._id}`}>
-            Edit
-          </Link>
-        </div>
-        <div className={classes.buttonContainer}>
-          <button className={classes.button} onClick={props.onDelete}>Delete</button>
-        </div>
-        <div className={classes.buttonContainer}>
-          <Link className={classes.EditButton} to={`/Gift/${props.gift._id}`}>
-            Gift Page
-          </Link>
-        </div>
-      </div>
+          <div className={classes.allUserButtons}>
+            <Button outline color='primary'>Eventually Add to Cart</Button>
+          </div>
+        </CardBody>
+      </Card>
     </div>
   )
 }

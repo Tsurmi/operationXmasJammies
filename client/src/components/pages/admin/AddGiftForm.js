@@ -1,41 +1,27 @@
 import React from 'react'
-import Input from 'material-ui/Input'
-import Button from 'material-ui/Button'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 import injectSheet from 'react-jss'
+import { Jumbotron, Button, Form, FormGroup, Label, Input } from 'reactstrap'
+
 
 const styles = {
-  formAndPhotoBucket: {
-    display: 'flex',
-    justifyContent: 'space-evenly'
+  jumbotronDiv: {
+    paddingTop: '10%',
+    backgroundImage: 'url("https://static.pexels.com/photos/77078/theme-christmas-77078.jpeg")',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
   },
-  input: {
-    display: 'flex',
-    flexDirection: 'column',
-    margin: 10,
-    width: '33.33333333333vw',
-    height: '30vw'
+  jumboTrans: {
+    backgroundColor: 'rgba(250,250,250,0.7)',
+    padding: '5%'
   },
-  inputTag: {
-    border: 'solid yellow',
-    width: ''
-  },
-  photo: {
-    display: 'flex',
-    width: 700,
-    height: 500
-  },
-  button: {
-    margin: 20,
-    width: 20
-  },
-  header: {
-    fontFamily: 'Merriweather',
-    margin: 10,
-    paddingLeft: '70%'
-  },
-  spacer: {
-    marginTop: '120px'
+  formBucket: {
+    paddingLeft: '10%',
+    paddingRight: '10%',
+    paddingBottom: '10%'
   }
 }
 
@@ -60,112 +46,148 @@ const enhancer = injectSheet(styles)
 const AddGiftForm = props => {
   const { classes } = props
   return (
-    <div className={classes.spacer}>
-      <h1 className={classes.header}>Request A Gift</h1>
-      <div className={classes.formAndPhotoBucket} >
-        <img className={classes.photo} src='https://static.pexels.com/photos/360624/pexels-photo-360624.jpeg' />
-        <div className={classes.formBucket}>
-          <form className={classes.input}>
-            <h4> Required Information </h4>
-            <p> This is the information only a person who is fulfilling
-            the Gift will see.  Only after they provide their contact information </p>
-            <p>First Name:</p>
+    <div>
+      <div>
+        <Jumbotron className={classes.jumbotronDiv}>
+          <div className={classes.jumboTrans}>
+            <h1 className='display-3'>Request A Gift!</h1>
+            <p className='lead'>Please enter all of the Required Information in the form below to post your gift request. </p>
+            <hr className='my-2' />
+            <p>Feel free to elaborate and enter the Optional Information as well!</p>
+            <p className='lead'>
+              <p> Need Inspiration? </p>
+              <Link to={'/AllGifts'}>
+                <Button color='primary'>See All Gifts</Button>
+              </Link>
+            </p>
+          </div>
+        </Jumbotron>
+      </div>
+      <div className={classes.formBucket}>
+        <Form>
+          <h4> Required Information </h4>
+          <p> This is the information only a person who is fulfilling
+          the Gift will see.  Only after they provide their contact information </p>
+          <FormGroup>
+            <Label>First Name:</Label>
             <Input
-              placeholder={props.firstName}
+              placeholder='First Name of Recipient '
               onChange={props.onFirstNameChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
-            <p>Last Name:</p>
+          </FormGroup>
+          <FormGroup>
+            <Label>Last Name:</Label>
             <Input
-              placeholder={props.lastName}
+              placeholder='Last Name of Recipient'
               onChange={props.onLastNameChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
-            <p>Jammie Size:</p>
+          </FormGroup>
+          <FormGroup>
+            <Label>Jammie Size:</Label>
             <Input
-              placeholder={props.jammieSize}
+              placeholder='Jammie Size - youth, adult, and size please. ex. youth large'
               onChange={props.onJammieSizeChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
-            <p>Mailing Street:</p>
+          </FormGroup>
+          <FormGroup>
+            <Label>Mailing Street:</Label>
             <Input
-              placeholder={props.street}
+              placeholder='House Number, Unit Number, etc. and Street'
               onChange={props.onStreetChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
-            <p>Mailing City:</p>
+          </FormGroup>
+          <FormGroup>
+            <Label>Mailing City:</Label>
             <Input
-              placeholder={props.city}
+              placeholder='City'
               onChange={props.onCityChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
-            <p>Mailing State:</p>
+          </FormGroup>
+          <FormGroup>
+            <Label>Mailing State:</Label>
             <Input
-              placeholder={props.mailingState}
+              placeholder='Two Letter Abbreviation '
               onChange={props.onMailingStateChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
-            <p>Mailing Zip Code:</p>
+          </FormGroup>
+          <FormGroup>
+            <Label>Mailing Zip Code:</Label>
             <Input
-              placeholder={props.zipCode}
+              placeholder='Five Digit Zip Code'
               onChange={props.onZipCodeChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
-            <h4> Optional Information </h4>
-            <p> This is the information everyone will see.
-            Fill out as much of it as you like </p>
-            <p>Age:</p>
+          </FormGroup>
+          <h4> Optional Information </h4>
+          <p> This is the information everyone will see.
+          Fill out as much of it as you like </p>
+          <FormGroup>
+            <Label>Age:</Label>
             <Input
-              placeholder={props.age}
+              placeholder='Age In Years'
               onChange={props.onAgeChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
-            <p>Image:</p>
+          </FormGroup>
+          <FormGroup>
+            <Label>Image URL:</Label>
             <Input
-              placeholder={props.image}
+              placeholder='Valid URL/Web Address For Picture ONLY'
               onChange={props.onImageChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
-            <img className={props.classes.formImage} src={props.image} />
-            <p>Special Instructions:</p>
+          </FormGroup>
+          <FormGroup>
+            <Label>Special Instructions:</Label>
             <Input
-              placeholder={props.specialInstructions}
+              type='textarea'
+              placeholder='Special Instructions for Jammies'
               onChange={props.onSpecialChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
-            <p>Story:</p>
+          </FormGroup>
+          <FormGroup>
+            <Label>Story:</Label>
             <Input
-              placeholder={props.story}
+              type='textarea'
+              placeholder='Your Story'
               onChange={props.onStoryChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
             />
-            <Button className={classes.button} raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
-          </form>
-        </div>
+          </FormGroup>
+          <Button onClick={(event) => props.onSubmit(event)} >Submit</Button>
+        </Form>
       </div>
     </div>
+
   )
 }
 AddGiftForm.propTypes = propTypes
