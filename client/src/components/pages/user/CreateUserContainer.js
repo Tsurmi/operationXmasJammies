@@ -19,11 +19,9 @@ class CreateUserContainer extends Component {
     lastName: '',
     email: '',
     password: '',
-    isSweet: false,
-    isDairy: false,
     image: undefined,
-    favCoffee: undefined,
-    favoriteCoffeeShop: undefined
+    address: '',
+    phone: ''
   }
 
   onFirstNameChanged = (event) => this.setState({
@@ -42,20 +40,12 @@ class CreateUserContainer extends Component {
     password: event.target.value
   })
 
-  onDairyChanged = () => {
-    this.setState({isDairy: !this.state.isDairy})
-  }
-
-  onSweetnessChanged = () => {
-    this.setState({isSweet: !this.state.isSweet})
-  }
-
-  onFavCoffee = (event) => this.setState({
-    favCoffee: event.target.value
+  onAddressChanged = (event) => this.setState({
+    address: event.target.value
   })
 
-  onFavoriteCoffeeShop = (event) => this.setState({
-    favoriteCoffeeShop: event.target.value
+  onPhoneChanged = (event) => this.setState({
+    phone: event.target.value
   })
 
   onSubmit = (event) => {
@@ -74,10 +64,8 @@ class CreateUserContainer extends Component {
         onLastNameChanged={this.onLastNameChanged}
         onEmailChanged={this.onEmailChanged}
         onPasswordChanged={this.onPasswordChanged}
-        onDairyChanged={this.onDairyChanged}
-        onSweetnessChanged={this.onSweetnessChanged}
-        onFavCoffee={this.onFavCoffee}
-        onFavoriteCoffeeShop={this.onFavoriteCoffeeShop}
+        onAddressChanged={this.onAddressChanged}
+        onPhoneChanged={this.onPhoneChanged}
         onSubmit={this.onSubmit}
       />
     )

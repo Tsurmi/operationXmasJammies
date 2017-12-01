@@ -13,10 +13,9 @@ class EditProfileContainer extends Component {
     loaded: false,
     firstName: undefined,
     lastName: undefined,
-    isDairy: undefined,
-    isSweet: undefined,
-    favCoffee: undefined,
-    favoriteCoffeeShop: undefined
+    address: undefined,
+    phone: undefined,
+    email: undefined
   }
 
   componentDidMount () {
@@ -26,10 +25,9 @@ class EditProfileContainer extends Component {
       this.setState({
         firstName: this.props.userData.user.local.firstName,
         lastName: this.props.userData.user.local.lastName,
-        isDairy: this.props.userData.user.local.isDairy,
-        isSweet: this.props.userData.user.local.isSweet,
-        favCoffee: this.props.userData.user.local.favCoffee,
-        favoriteCoffeeShop: this.props.userData.user.local.favoriteCoffeeShop,
+        address: this.props.userData.user.local.address,
+        phone: this.props.userData.user.local.phone,
+        email: this.props.userData.user.local.email,
         loaded: true
       })
     }
@@ -39,13 +37,11 @@ onFirstNameChanged = (event) => this.setState({firstName: event.target.value})
 
 onLastNameChanged = (event) => this.setState({lastName: event.target.value})
 
-onDairyChanged = () => { this.setState({isDairy: !this.state.isDairy}) }
+onAddressChanged = (event) => this.setState({address: event.target.value})
 
-onSweetnessChanged = () => { this.setState({isSweet: !this.state.isSweet}) }
+onPhoneChanged = (event) => this.setState({phone: event.target.value})
 
-onFavCoffee = (event) => this.setState({favCoffee: event.target.value})
-
-onFavoriteCoffeeShop = (event) => this.setState({favoriteCoffeeShop: event.target.value})
+onEmailChanged = (event) => this.setState({email: event.target.value})
 
 onSubmit = (event) => {
   event.preventDefault()
@@ -60,10 +56,9 @@ render () {
       {...this.state}
       onFirstNameChanged={this.onFirstNameChanged}
       onLastNameChanged={this.onLastNameChanged}
-      onDairyChanged={this.onDairyChanged}
-      onSweetnessChanged={this.onSweetnessChanged}
-      onFavCoffee={this.onFavCoffee}
-      onFavoriteCoffeeShop={this.onFavoriteCoffeeShop}
+      onAddressChanged={this.onAddressChanged}
+      onPhoneChanged={this.onPhoneChanged}
+      onEmailChanged={this.onEmailChanged}
       onSubmit={this.onSubmit}
     /> : null)
 }

@@ -13,10 +13,7 @@ class AddGiftContainer extends Component {
     firstName: undefined,
     lastName: undefined,
     age: undefined,
-    street: undefined,
-    city: undefined,
-    mailingState: undefined,
-    zipCode: undefined,
+    address: undefined,
     specialInstructions: undefined,
     story: undefined,
     jammieSize: undefined,
@@ -35,20 +32,8 @@ class AddGiftContainer extends Component {
     age: event.target.value
   })
 
-  onCityChanged = (event) => this.setState({
-    city: event.target.value
-  })
-
-  onStreetChanged = (event) => this.setState({
-    street: event.target.value
-  })
-
-  onMailingStateChanged = (event) => this.setState({
-    mailingState: event.target.value
-  })
-
-  onZipCodeChanged = (event) => this.setState({
-    zipCode: event.target.value
+  onAddressChanged = (event) => this.setState({
+    address: event.target.value
   })
 
   onSpecialChanged = (event) => this.setState({
@@ -78,9 +63,7 @@ class AddGiftContainer extends Component {
       ${this.state.lastName}
       ${this.state.age}
       ${this.state.jammieSize}
-      ${this.state.street}
-      ${this.state.mailingState}
-      ${this.state.zipCode}
+      ${this.state.address}
       ${this.state.specialInstructions}
       ${this.state.story}
       `)
@@ -91,10 +74,7 @@ class AddGiftContainer extends Component {
         onFirstNameChanged={this.onFirstNameChanged}
         onLastNameChanged={this.onLastNameChanged}
         onAgeChanged={this.onAgeChanged}
-        onStreetChanged={this.onStreetChanged}
-        onCityChanged={this.onCityChanged}
-        onMailingStateChanged={this.onMailingStateChanged}
-        onZipCodeChanged={this.onZipCodeChanged}
+        onAddressChanged={this.onAddressChanged}
         onSpecialChanged={this.onSpecialChanged}
         onStoryChanged={this.onStoryChanged}
         onJammieSizeChanged={this.onJammieSizeChanged}

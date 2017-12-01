@@ -30,10 +30,7 @@ const propTypes = {
   onFirstNameChanged: PropTypes.func.isRequired,
   onLastNameChanged: PropTypes.func.isRequired,
   onAgeChanged: PropTypes.func.isRequired,
-  onStreetChanged: PropTypes.func.isRequired,
-  onCityChanged: PropTypes.func.isRequired,
-  onMailingStateChanged: PropTypes.func.isRequired,
-  onZipCodeChanged: PropTypes.func.isRequired,
+  onAddressChanged: PropTypes.func.isRequired,
   onSpecialChanged: PropTypes.func.isRequired,
   onStoryChanged: PropTypes.func.isRequired,
   onJammieSizeChanged: PropTypes.func.isRequired,
@@ -99,40 +96,11 @@ const AddGiftForm = props => {
             />
           </FormGroup>
           <FormGroup>
-            <Label>Mailing Street:</Label>
+            <Label>Mailing Address:</Label>
             <Input
-              placeholder='House Number, Unit Number, etc. and Street'
-              onChange={props.onStreetChanged}
-              inputProps={{
-                'aria-label': 'Description'
-              }}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label>Mailing City:</Label>
-            <Input
-              placeholder='City'
-              onChange={props.onCityChanged}
-              inputProps={{
-                'aria-label': 'Description'
-              }}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label>Mailing State:</Label>
-            <Input
-              placeholder='Two Letter Abbreviation '
-              onChange={props.onMailingStateChanged}
-              inputProps={{
-                'aria-label': 'Description'
-              }}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label>Mailing Zip Code:</Label>
-            <Input
-              placeholder='Five Digit Zip Code'
-              onChange={props.onZipCodeChanged}
+              type='textarea'
+              placeholder='Complete Address include Country if outside USA'
+              onChange={props.onAddressChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}

@@ -2,7 +2,8 @@ import React from 'react'
 import TextField from 'material-ui/TextField'
 import PropTypes from 'prop-types'
 import injectSheet from 'react-jss'
-import Button from 'material-ui/Button'
+import { Jumbotron, Button, Form, FormGroup, Label, Input } from 'reactstrap'
+
 
 const propTypes = {
   classes: PropTypes.object.isRequired,
@@ -16,42 +17,27 @@ const propTypes = {
 const styles = {
   container: {
     display: 'flex',
-    justifyContent: 'flex-end',
-    marginRight: 45
+    justifyContent: 'center'
   },
   input: {
     display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'column',
     margin: 10,
-    width: '45vw',
-    height: '45vw'
+    width: '33.33%',
+    height: '33.33%'
   },
-  textField: {
-    width: 300
+  jumbotronDiv: {
+    paddingTop: '10%',
+    backgroundImage: 'url("https://static.pexels.com/photos/259890/pexels-photo-259890.jpeg")',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
   },
-  button: {
-    marginTop: 20,
-    width: 20
-  },
-  inputTag: {
-    border: 'solid blue',
-    marginTop: 30,
-    width: 190
-  },
-  img: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    width: '60vw',
-    height: '75vh'
-  },
-  header: {
-    fontFamily: 'Merriweather',
-    paddingLeft: '63%',
-    margin: 10
-  },
-  spacer: {
-    marginTop: '120px'
+  jumboTrans: {
+    backgroundColor: 'rgba(250,250,250,0.7)',
+    padding: '5%'
   }
 }
 
@@ -61,30 +47,33 @@ const LoginForm = props => {
   const { classes } = props
 
   return (
-    <div className={classes.spacer}>
-      <h1 className={classes.header}> Membership Login </h1>
-      <div className={classes.container}>
-        <img className={classes.img} src='https://static1.squarespace.com/static/53c560bde4b013ba8747544a/t/5966b773a803bbd1f9bafc77/1499904319096/sca-barista-skills' />
-        <div className={classes.formBucket}>
-          <form className={classes.input}>
-            <TextField
-              id='email'
-              label='Email'
-              className={classes.textField}
-              value={props.email}
-              onChange={props.onEmailChanged}
-            />
-            <TextField
-              id='password'
-              label='Password'
-              type='password'
-              className={classes.textField}
-              value={props.password}
-              onChange={props.onPasswordChanged}
-            />
-            <Button className={classes.button} raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
-          </form>
+    <div>
+      <Jumbotron className={classes.jumbotronDiv}>
+        <div className={classes.jumboTrans}>
+          <h1 className='display-3'>Login to your Account</h1>
+          <p className='lead'>This is the login for All Account Types</p>
+          <hr className='my-2' />
         </div>
+      </Jumbotron>
+      <div className={classes.container}>
+        <form className={classes.input}>
+          <TextField
+            id='email'
+            label='Email'
+            className={classes.textField}
+            value={props.email}
+            onChange={props.onEmailChanged}
+          />
+          <TextField
+            id='password'
+            label='Password'
+            type='password'
+            className={classes.textField}
+            value={props.password}
+            onChange={props.onPasswordChanged}
+          />
+          <Button className={classes.button} raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
+        </form>
       </div>
     </div>
   )

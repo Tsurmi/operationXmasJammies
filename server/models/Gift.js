@@ -5,10 +5,7 @@ const GiftSchema = new mongoose.Schema({
   lastName: { type: String, required: true },
   age: { type: String, required: false },
   jammieSize: { type: String, required: true },
-  street: { type: String, required: true },
-  city: { type: String, required: true },
-  mailingState: { type: String, required: true },
-  zipCode: { type: String, required: true },
+  address: { type: String, required: true },
   specialInstructions: { type: String, required: false },
   story: { type: String, required: false },
   image: { type: String, required: false }
@@ -19,10 +16,7 @@ GiftSchema.methods.loadData = function (data) {
   this.lastName = data.lastName || this.lastName
   this.age = data.age || this.age
   this.jammieSize = data.jammieSize || this.jammieSize
-  this.street = data.street || this.street
-  this.city = data.city || this.city
-  this.mailingState = data.mailingState || this.mailingState
-  this.zipCode = data.zipCode || this.zipCode
+  this.address = data.address || this.address
   this.specialInstructions = data.specialInstructions || this.specialInstructions
   this.story = data.story || this.story
   this.image = data.image || this.image

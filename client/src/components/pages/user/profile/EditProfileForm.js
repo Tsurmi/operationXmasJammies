@@ -1,10 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TextField from 'material-ui/TextField'
-import {FormControlLabel} from 'material-ui/Form'
-import Switch from 'material-ui/Switch'
-import Button from 'material-ui/Button'
 import injectSheet from 'react-jss'
+import { Jumbotron, Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
 const propTypes = {
   classes: PropTypes.object.isRequired,
@@ -12,52 +9,32 @@ const propTypes = {
   onFirstNameChanged: PropTypes.func.isRequired,
   lastName: PropTypes.string.isRequired,
   onLastNameChanged: PropTypes.func.isRequired,
-  isDairy: PropTypes.bool.isRequired,
-  onDairyChanged: PropTypes.func.isRequired,
-  isSweet: PropTypes.bool.isRequired,
-  onSweetnessChanged: PropTypes.func.isRequired,
-  favCoffee: PropTypes.string.isRequired,
-  onFavCoffee: PropTypes.func.isRequired,
-  favoriteCoffeeShop: PropTypes.string.isRequired,
-  onFavoriteCoffeeShop: PropTypes.func.isRequired,
+  address: PropTypes.string.isRequired,
+  onAddressChanged: PropTypes.func.isRequired,
+  phone: PropTypes.string.isRequired,
+  onPhoneChanged: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  onEmailChanged: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
 
 const styles = {
   container: {
     display: 'flex',
-    justifyContent: 'flex-end',
-    marginRight: '23%'
+    justifyContent: 'center',
+    paddingBottom: '5%'
   },
-  input: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    flexDirection: 'column',
-    margin: 10,
-    width: '45vw',
-    height: '45vw'
+  jumbotronDiv: {
+    paddingTop: '10%',
+    backgroundImage: 'url("https://static.pexels.com/photos/190932/pexels-photo-190932.jpeg")',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
   },
-  textField: {
-    width: 300
-  },
-  button: {
-    margin: 20,
-    width: 20
-  },
-  inputTag: {
-    border: 'solid blue',
-    marginTop: 30,
-    width: 190
-  },
-  img: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    width: '60vw',
-    height: '75vh',
-    margin: 20
-  },
-  header: {
-    fontFamily: 'Merriweather'
+  jumboTrans: {
+    backgroundColor: 'rgba(250,250,250,0.7)',
+    padding: '5%'
   }
 }
 
@@ -67,58 +44,69 @@ const EditProfileForm = props => {
   const { classes } = props
   return (
     <div>
-      <h1 className={classes.header}> Edit Your Profile Here</h1>
+      <Jumbotron className={classes.jumbotronDiv}>
+        <div className={classes.jumboTrans}>
+          <h1 className='display-3'>Edit Your Profile</h1>
+          <p className='lead'>This is the information we have on file for you</p>
+          <hr className='my-2' />
+          <p>Please update any of the Information below as needed</p>
+        </div>
+      </Jumbotron>
       <div className={classes.container}>
-        <img className={classes.img} src='https://images.unsplash.com/photo-1478916813757-c14a1ce81e3e?dpr=1&auto=format&fit=crop&w=667&h=&q=60&cs=tinysrgb&crop=' />
-        <form className={classes.input} onSubmit={props.onSubmit}>
-          <TextField
-            id='firstName'
-            label='First Name'
-            className={classes.textField}
-            value={props.firstName}
-            onChange={props.onFirstNameChanged}
-          />
-          <TextField
-            id='lastName'
-            label='Last Name'
-            className={classes.textField}
-            value={props.lastName}
-            onChange={props.onLastNameChanged}
-          />
-          <TextField
-            id='favoriteCoffee'
-            label='Favorite Coffee'
-            className={classes.textField}
-            value={props.favCoffee ? props.favCoffee : 'Pick your favorite Coffee'}
-            onChange={props.onFavCoffee}
-          />
-          <TextField
-            id='favoriteCoffeeShop'
-            label='Favorite Coffee Shop'
-            className={classes.textField}
-            value={props.favoriteCoffeeShop ? props.favoriteCoffeeShop : 'Pick your favorite Coffee Shop'}
-            onChange={props.onFavoriteCoffeeShop}
-          />
-          <FormControlLabel
-            control={
-              <Switch
-                onClick={() => props.onDairyChanged()}
-                checked={props.isDairy ? props.isDairy : false}
-              />
-            }
-            label='Dairy'
-          />
-          <FormControlLabel
-            control={
-              <Switch
-                onClick={() => props.onSweetnessChanged()}
-                checked={props.isSweet ? props.isSweet : false}
-              />
-            }
-            label='Sweet'
-          />
-          <Button className={props.classes.button} raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
-        </form>
+        <Form>
+          <FormGroup>
+            <Label>First Name</Label>
+            <Input
+              value={props.firstName}
+              onChange={props.onFirstNameChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label>Last Name</Label>
+            <Input
+              value={props.lastName}
+              onChange={props.onLastNameChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label>Email Address</Label>
+            <Input
+              value={props.email}
+              onChange={props.onEmailChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label>Mailing Address</Label>
+            <Input
+              type='textarea'
+              value={props.address}
+              onChange={props.onAddressChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label>Phone Number</Label>
+            <Input
+              value={props.phone}
+              onChange={props.onPhoneChanged}
+              inputProps={{
+                'aria-label': 'Description'
+              }}
+            />
+          </FormGroup>
+          <Button raised onClick={(event) => props.onSubmit(event)} >Submit</Button>
+        </Form>
       </div>
     </div>
   )

@@ -47,6 +47,12 @@ const NavBar = props => {
     <div className={classes.navLinks}>
         <NavLink className={classes.links} to='/'>Home</NavLink>
         <NavLink className={classes.links} to='/AllGifts'>Giving Tree</NavLink>
+        <NavLink className={classes.links} to='/CreateUser'>Create User</NavLink>
+        <NavLink className={classes.links} to='/LogIn'>Login</NavLink>
+        <NavLink className={classes.links} to='/Profile'>Profile</NavLink>
+        <NavLink className={classes.links} to='/AddGift'>Create Gift</NavLink>
+
+
     </div>
   )
 }

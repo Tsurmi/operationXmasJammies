@@ -51,20 +51,14 @@ const propTypes = {
   age: PropTypes.string.isRequired,
   onJammieSizeChanged: PropTypes.func.isRequired,
   jammieSize: PropTypes.string.isRequired,
-  onStreetChanged: PropTypes.func.isRequired,
-  street: PropTypes.string.isRequired,
-  onMailingStateChanged: PropTypes.func.isRequired,
-  mailingState: PropTypes.string.isRequired,
-  onZipCodeChanged: PropTypes.func.isRequired,
-  zipCode: PropTypes.string.isRequired,
+  onAddressChanged: PropTypes.func.isRequired,
+  address: PropTypes.string.isRequired,
   onSpecialChanged: PropTypes.func.isRequired,
   specialInstructions: PropTypes.string.isRequired,
   onStoryChanged: PropTypes.func.isRequired,
   story: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   onImageChanged: PropTypes.func.isRequired,
-  city: PropTypes.string.isRequired,
-  onCityChanged: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
 
@@ -113,7 +107,7 @@ const EditGiftForm = props => {
           <FormGroup>
             <Label>First Name:</Label>
             <Input
-              placeholder={props.firstName}
+              value={props.firstName}
               onChange={props.onFirstNameChanged}
               inputProps={{
                 'aria-label': 'Description'
@@ -123,7 +117,7 @@ const EditGiftForm = props => {
           <FormGroup>
             <Label>Last Name:</Label>
             <Input
-              placeholder={props.lastName}
+              value={props.lastName}
               onChange={props.onLastNameChanged}
               inputProps={{
                 'aria-label': 'Description'
@@ -133,7 +127,7 @@ const EditGiftForm = props => {
           <FormGroup>
             <Label>Jammie Size:</Label>
             <Input
-              placeholder={props.jammieSize}
+              value={props.jammieSize}
               onChange={props.onJammieSizeChanged}
               inputProps={{
                 'aria-label': 'Description'
@@ -141,40 +135,11 @@ const EditGiftForm = props => {
             />
           </FormGroup>
           <FormGroup>
-            <Label>Mailing Street:</Label>
+            <Label>Mailing Address:</Label>
             <Input
-              placeholder={props.street}
-              onChange={props.onStreetChanged}
-              inputProps={{
-                'aria-label': 'Description'
-              }}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label>Mailing City:</Label>
-            <Input
-              placeholder={props.city}
-              onChange={props.onCityChanged}
-              inputProps={{
-                'aria-label': 'Description'
-              }}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label>Mailing State:</Label>
-            <Input
-              placeholder={props.mailingState}
-              onChange={props.onMailingStateChanged}
-              inputProps={{
-                'aria-label': 'Description'
-              }}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label>Mailing Zip Code:</Label>
-            <Input
-              placeholder={props.zipCode}
-              onChange={props.onZipCodeChanged}
+              type='textarea'
+              value={props.address}
+              onChange={props.onAddressChanged}
               inputProps={{
                 'aria-label': 'Description'
               }}
@@ -186,7 +151,7 @@ const EditGiftForm = props => {
           <FormGroup>
             <Label>Age:</Label>
             <Input
-              placeholder={props.age}
+              value={props.age}
               onChange={props.onAgeChanged}
               inputProps={{
                 'aria-label': 'Description'
@@ -196,7 +161,7 @@ const EditGiftForm = props => {
           <FormGroup>
             <Label>Image URL:</Label>
             <Input
-              placeholder={props.image}
+              value={props.image}
               onChange={props.onImageChanged}
               inputProps={{
                 'aria-label': 'Description'
@@ -207,7 +172,7 @@ const EditGiftForm = props => {
             <Label>Special Instructions:</Label>
             <Input
               type='textarea'
-              placeholder={props.specialInstructions}
+              value={props.specialInstructions}
               onChange={props.onSpecialChanged}
               inputProps={{
                 'aria-label': 'Description'
@@ -218,7 +183,7 @@ const EditGiftForm = props => {
             <Label>Story:</Label>
             <Input
               type='textarea'
-              placeholder={props.story}
+              value={props.story}
               onChange={props.onStoryChanged}
               inputProps={{
                 'aria-label': 'Description'

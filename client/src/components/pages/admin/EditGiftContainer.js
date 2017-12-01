@@ -16,10 +16,7 @@ class EditGiftContainer extends Component {
     lastName: undefined,
     age: undefined,
     jammieSize: undefined,
-    street: undefined,
-    city: undefined,
-    mailingState: undefined,
-    zipCode: undefined,
+    address: undefined,
     specialInstructions: undefined,
     story: undefined,
     image: undefined
@@ -33,10 +30,7 @@ class EditGiftContainer extends Component {
         lastName: this.props.giftData.gift.lastName,
         age: this.props.giftData.gift.age,
         jammieSize: this.props.giftData.gift.jammieSize,
-        street: this.props.giftData.gift.street,
-        city: this.props.giftData.gift.city,
-        mailingState: this.props.giftData.gift.mailingState,
-        zipCode: this.props.giftData.gift.zipCode,
+        address: this.props.giftData.gift.address,
         specialInstructions: this.props.giftData.gift.specialInstructions,
         story: this.props.giftData.gift.story,
         image: this.props.giftData.gift.image,
@@ -55,13 +49,7 @@ class EditGiftContainer extends Component {
 
   onJammieSizeChanged = (event) => this.setState({jammieSize: event.target.value})
 
-  onStreetChanged = (event) => this.setState({street: event.target.value})
-
-  onCityChanged = (event) => this.setState({city: event.target.value})
-
-  onMailingStateChanged = (event) => this.setState({mailingState: event.target.value})
-
-  onZipCodeChanged = (event) => this.setState({zipCode: event.target.value})
+  onAddressChanged = (event) => this.setState({address: event.target.value})
 
   onSpecialChanged = (event) => this.setState({specialInstructions: event.target.value})
 
@@ -83,10 +71,7 @@ class EditGiftContainer extends Component {
         onLastNameChanged={this.onLastNameChanged}
         onAgeChanged={this.onAgeChanged}
         onJammieSizeChanged={this.onJammieSizeChanged}
-        onStreetChanged={this.onStreetChanged}
-        onCityChanged={this.onCityChanged}
-        onMailingStateChanged={this.onMailingStateChanged}
-        onZipCodeChanged={this.onZipCodeChanged}
+        onAddressChanged={this.onStreetChanged}
         onSpecialChanged={this.onSpecialChanged}
         onStoryChanged={this.onStoryChanged}
         onImageChanged={this.onImageChanged}

@@ -22,7 +22,7 @@ class LoginContainer extends Component {
     console.log('Hey')
     this.props.userData.loginUser(this.state.email, this.state.password)
       .then((user) => {
-        this.props.history.push('/')
+        this.props.history.push('/AllGifts')
         alert(`You are logged in ${user.local.firstName}`)
       })
       .catch((err) => console.log(err))

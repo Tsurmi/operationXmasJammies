@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 export const user = PropTypes.shape({
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired
 })
@@ -24,9 +26,7 @@ export const gift = PropTypes.shape({
   lastName: PropTypes.string.isRequired,
   age: PropTypes.string.isRequired,
   jammieSize: PropTypes.string.isRequired,
-  street: PropTypes.string.isRequired,
-  mailingState: PropTypes.string.isRequired,
-  zipCode: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
   specialInstructions: PropTypes.string.isRequired,
   story: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired

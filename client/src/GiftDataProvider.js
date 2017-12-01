@@ -12,7 +12,7 @@ class GiftDataProvider extends Component {
     isLoaded: false,
     gifts: [],
     randomGift: undefined,
-    gift: undefined,
+    gift: undefined
   }
 
   methods = {

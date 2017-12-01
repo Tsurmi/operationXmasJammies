@@ -47,7 +47,7 @@ export const getUserById = (userId) => ajaxRequest({url: `/api/users/id/${userId
 
 export const addUser = (newUser) => { return ajaxRequest({url: '/api/signup', method: 'POST', body: newUser}) }
 
-export const updateUser = (user) => ajaxRequest({url: `/api/users/${user._id}`, method: 'PUT', body: user})
+export const updateUser = (userId, user) => ajaxRequest({url: `/api/users/id/${userId}`, method: 'PUT', body: user})
 
 export const deleteUser = (userId) => ajaxRequest({url: `/api/users/${userId}`, method: 'DELETE'})
 

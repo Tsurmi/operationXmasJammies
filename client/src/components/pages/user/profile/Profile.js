@@ -2,81 +2,85 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import { withStyles } from 'material-ui/styles'
-import Card, { CardActions, CardContent } from 'material-ui/Card'
-import Button from 'material-ui/Button'
+import { Jumbotron, Button, Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle } from 'reactstrap'
 
 const propTypes = {
   classes: PropTypes.object.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  favoriteCoffee: PropTypes.string.isRequired,
-  favoriteCoffeeShop: PropTypes.string.isRequired
+  address: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired
 }
 
 const styles = {
+  jumbotronDiv: {
+    paddingTop: '10%',
+    backgroundImage: 'url("https://static.pexels.com/photos/236129/pexels-photo-236129.jpeg")',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
+  },
+  jumboTrans: {
+    backgroundColor: 'rgba(250,250,250,0.7)',
+    padding: '5%'
+  },
   mainDiv: {
     display: 'flex',
-    flexDirection: 'row',
-    marginTop: '100px'
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    border: 'solid red',
+    marginTop: '1%'
   },
-  card: {
-    maxWidth: 355,
-    height: 365,
-    marginTop: 100,
-    marginLeft: 10
-  },
-  media: {
-    height: 200,
-    width: 335,
-    margin: 10
-  },
-  randomButton: {
-    dense: 'primary'
-  },
-  cardActions: {
+  profileCardDiv: {
     display: 'flex',
-    justifyContent: 'space-between'
-  },
-  header: {
-    fontFamily: 'Merriweather'
-  },
-  typography: {
-    height: 600
-  },
-  buttonLink: {
-    textDecoration: 'none'
+    width: '33.3%'
   }
 }
 
 const Profile = props => {
   const { classes } = props
   return (
-    <div className={classes.mainDiv} >
-      <div>
-        <img className={classes.typography} src='https://i.pinimg.com/736x/90/8a/11/908a11e4a4ef0da9a0dd64fa31a54fb6--coffee-typography-under-eye-concealer.jpg' />
-      </div>
-      <Card className={classes.card}>
-        <div>
-          <img className={classes.media} src='https://burst.shopifycdn.com/photos/making-coffee_925x.jpg' />
+    <div>
+
+      <Jumbotron className={classes.jumbotronDiv}>
+        <div className={classes.jumboTrans}>
+          <h1 className='display-3'>Welcome {props.firstName} to your Profile!</h1>
+          <p className='lead'>Below is the information we have on file for you. </p>
+          <hr className='my-2' />
+          <p>Feel free to update your information at any time!</p>
+          <p className='lead'>
+            <p> Ready to See Some Gifts? </p>
+            <Link to={'/AllGifts'}>
+              <Button color='primary'>See All Gifts</Button>
+            </Link>
+          </p>
         </div>
-        <CardContent>
-          <div className={classes.header}> First Name: {props.firstName}</div>
-          <div className={classes.header}> Last Name: {props.lastName}</div>
-          <div className={classes.header}> Email: {props.email}</div>
-        </CardContent>
-        <CardActions className={classes.cardActions}>
-          <Button dense color='primary'>
-            <Link className={classes.buttonLink} to='/Randomizer'>Randomizer</Link>
-          </Button>
-          <Button dense color='primary' >
-            <Link className={classes.buttonLink} to='/'>Home</Link>
-          </Button>
-          <Button dense color='primary'>
-            <Link className={classes.buttonLink} to='/EditProfile'>Edit Profile</Link>
-          </Button>
-        </CardActions>
-      </Card>
+      </Jumbotron>
+      <div className={classes.mainDiv}>
+        <div className={classes.profileCardDiv}>
+          <Card>
+            <CardImg top width='100%' src={'https://static.pexels.com/photos/41963/santa-claus-christmas-beard-celebration-41963.jpeg'} alt='Profile Image' />
+            <CardBody>
+              <CardTitle>{props.firstName} </CardTitle>
+              <CardSubtitle>{props.lastName}</CardSubtitle>
+              <CardText>
+                <p>Email: {props.email}</p>
+                <p>Address: {props.address}</p>
+                <p>Phone: {props.phone}</p>
+              </CardText>
+              <div className={classes.kidUserButtons}>
+                <Link to={'/EditProfile'}>
+                  <Button outline color='primary'>Edit Profile</Button>
+                </Link>
+              </div>
+            </CardBody>
+          </Card>
+        </div>
+      </div>
     </div>
   )
 }

@@ -14,7 +14,9 @@ class ProfileContainer extends Component {
       this.state = {
         email: props.userData.user.local.email,
         firstName: props.userData.user.local.firstName,
-        lastName: props.userData.user.local.lastName
+        lastName: props.userData.user.local.lastName,
+        address: props.userData.user.local.address,
+        phone: props.userData.user.local.phone
       }
     }
   }
