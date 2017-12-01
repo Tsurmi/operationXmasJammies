@@ -44,8 +44,12 @@ onPhoneChanged = (event) => this.setState({phone: event.target.value})
 onEmailChanged = (event) => this.setState({email: event.target.value})
 
 onSubmit = (event) => {
-  event.preventDefault()
-  this.props.userData.updateUser(this.props.userData.user._id, this.state)
+  console.log(this.state)
+  const {address, firstName, lastName, phone} = this.state
+  const updatedUser = {address, firstName, lastName, phone}
+  // same as const address = this.state.address etc for each one ^
+  // event.preventDefault()
+  this.props.userData.updateUser(this.props.userData.user._id, updatedUser)
   this.props.history.push('/profile')
   console.log('Submit Form Worked')
 }

@@ -37,14 +37,17 @@ Router.route('/:user_id')
     })
   })
   .put((req, res) => {
+    console.log('USER PUT ROUTE FOUND')
     User.findById(req.params.user_id, (er, user) => {
       if (er) return res.status(500)
       if (!user) return res.status(404)
       user.loadData(req.body)
       user.save((err, updatedUser) => {
         if (err) {
+          console.log('USER ERROR')
           res.json({ message: err, data: null })
         } else {
+          console.log('USER UPDATED', updatedUser)
           res.json({ updatedUser, message: 'User Updated' })
         }
       })
