@@ -24,4 +24,11 @@ UserSchema.methods.validPassword = function (password) {
   return bcrypt.compareSync(password, this.local.password)
 }
 
+UserSchema.methods.loadData = function (data) {
+  this.local.firstName = data.firstName || this.local.firstName
+  this.local.lastName = data.lastName || this.local.lastName
+  this.local.address = data.address || this.local.address
+  this.local.phone = data.phone || this.local.phone
+}
+
 module.exports = mongoose.model('User', UserSchema)

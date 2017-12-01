@@ -45,7 +45,7 @@ onEmailChanged = (event) => this.setState({email: event.target.value})
 
 onSubmit = (event) => {
   event.preventDefault()
-  this.props.userData.updateUser(this.state)
+  this.props.userData.updateUser(this.props.userData.user._id, this.state)
   this.props.history.push('/profile')
   console.log('Submit Form Worked')
 }
